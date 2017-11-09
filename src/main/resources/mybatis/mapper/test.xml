@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test1.dao.TestDao">
+	<select id="infoSelect" resultType="int" parameterType="String">
+		select
+		count(id) from user where id = #{id}
+	</select>
+	<insert id="insertUser" parameterType="com.test1.vo.UserVo">
+		insert into user(id, pw,
+		name, gender, hobby, joinfrom, sns) values(#{id}, #{pw}, #{name},
+		#{gender}, #{hobby}, #{joinfrom}, #{sns})
+	</insert>
+	<select id="selectUser" resultType="com.test1.vo.UserVo" parameterType="String">
+		select id, pw, name, gender, hobby, joinfrom, sns from user where id=#{id}
+	</select>
+	<update id="updateUser" parameterType="com.test1.vo.UserVo">
+		update user set pw=#{pw}, name=#{name}, gender=#{gender}, hobby=#{hobby}, joinfrom=#{joinfrom}, sns=#{sns} where id=#{id}
+	</update>
+</mapper>
